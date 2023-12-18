@@ -1,0 +1,107 @@
+<html>
+    <script>
+        /* -Crea una interfaz  de Figura Geometrica, con un metodo para calcular el area. Luego, implementa esta interfaz en clases como "Circulo" y "Rectangulo" para calcular el area de diferentes formas geometricas.*/
+
+
+        
+
+
+class Figura {
+
+    calcularArea() {
+    throw new Error("Método calcularArea() no implementado");
+}
+}
+
+
+class Circulo extends Figura {
+constructor() {
+    super();
+    this.radio = parseFloat(prompt("Ingrese el radio del círculo:"));
+}
+
+calcularArea() {
+    return Math.PI * this.radio ** 2;
+}
+
+}
+
+
+class Cuadrado extends Figura {
+constructor() {
+    super();
+    this.lado = parseFloat(prompt("Ingrese el lado del cuadrado:"));
+}
+
+
+calcularArea() {
+    return this.lado ** 2;
+}
+}
+
+
+class Triangulo extends Figura {
+    constructor() {
+    super();
+    this.base = parseFloat(prompt("Ingrese la base del triángulo:"));
+    this.altura = parseFloat(prompt("Ingrese la altura del triángulo:"));
+}
+
+
+calcularArea() {
+    return (this.base * this.altura) / 2;
+}
+}
+
+class Rectangulo extends Figura {
+
+    constructor(){
+        super();
+        this.base = parseFloat(prompt("Ingrese a base del rectangulo:"));
+        this.altura = parseFloat(prompt("Ingrese la altura del rectangulo:"));
+    }
+
+    calcularArea(){
+
+        return this.base * this.altura;
+    }
+}
+
+
+function calcularAreaPorFigura() {
+const figuraSeleccionada = prompt("Ingrese la figura a calcular (circulo, cuadrado, triangulo, rectangulo):").toLowerCase();
+
+let figura;
+
+switch (figuraSeleccionada) {
+    case "circulo":
+    figura = new Circulo();
+    break;
+    case "cuadrado":
+    figura = new Cuadrado();
+    break;
+    case "triangulo":
+    figura = new Triangulo();
+    break;
+    case "rectangulo":
+    figura = new Rectangulo();
+    break;
+    default:
+    console.log("Figura no válida.");
+    return;
+}
+
+const area = figura.calcularArea();
+
+document.write(`El área del ${figuraSeleccionada} es ${area}.`);
+}
+
+
+calcularAreaPorFigura();
+
+
+
+
+
+    </script>
+</html>
